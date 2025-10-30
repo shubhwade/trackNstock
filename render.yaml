@@ -4,7 +4,6 @@ services:
     env: docker
     plan: free
     buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/inventory-management-1.0.0.jar
     healthCheckPath: /api/products
     envVars:
       - key: PORT
@@ -18,7 +17,4 @@ services:
     staticPublishPath: ./frontend/build
     envVars:
       - key: REACT_APP_API_BASE_URL
-        fromService:
-          name: tracknstock-backend
-          type: web
-          property: url
+        value: https://tracknstock-backend.onrender.com
