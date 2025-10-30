@@ -2,6 +2,7 @@ services:
   - type: web
     name: tracknstock-backend
     env: docker
+    plan: free
     buildCommand: mvn clean package -DskipTests
     startCommand: java -jar target/inventory-management-1.0.0.jar
     healthCheckPath: /api/products
@@ -9,10 +10,12 @@ services:
       - key: PORT
         value: 8080
 
-  - type: static-site
+  - type: web
     name: tracknstock-frontend
+    env: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
-    publishDir: frontend/build
+    staticPublishPath: ./frontend/build
     envVars:
       - key: REACT_APP_API_BASE_URL
         fromService:
