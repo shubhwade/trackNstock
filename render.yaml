@@ -6,9 +6,8 @@ services:
     dockerfilePath: Dockerfile
     autoDeploy: true
 
-  - type: web
-    name: tracknstock-frontend
-    env: static
+staticSites:
+  - name: tracknstock-frontend
     rootDir: frontend
     buildCommand: npm ci && npm run build
     publishPath: build
