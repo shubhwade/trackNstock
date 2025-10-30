@@ -6,12 +6,11 @@ services:
     dockerfilePath: Dockerfile
     autoDeploy: true
 
-  - type: static
+  - type: static_site
     name: tracknstock-frontend
-    env: static
     rootDir: frontend
     buildCommand: npm ci && npm run build
-    staticPublishPath: build
+    publishPath: build
     headers:
       - path: /*
         name: Cache-Control
