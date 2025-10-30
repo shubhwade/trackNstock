@@ -1,24 +1,24 @@
-# Java
+# Java / Maven
 /target/
-*.class
-*.jar
-*.war
-*.ear
-
-# Maven
-/.mvn/
-/.settings/
-/.classpath
-/*.iml
+!.mvn/wrapper/maven-wrapper.jar
 
 # Spring Boot
-log/*.log
+*.log
 
-# Node
+# Node / React
 /frontend/node_modules/
 /frontend/build/
 
-# IDEs
-.idea/
-.vscode/
+# IDEs & OS
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+/frontend/.env
+
+# Misc
+*.iml
 *.swp

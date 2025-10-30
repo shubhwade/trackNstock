@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: tracknstock-backend
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+
+  - type: static
+    name: tracknstock-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: build
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: max-age=0
+    envVars:
+      - key: REACT_APP_API_BASE_URL
+        value: https://REPLACE_WITH_BACKEND_URL/api/products
+
